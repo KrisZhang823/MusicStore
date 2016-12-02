@@ -1,0 +1,111 @@
+CREATE DATABASE IF NOT EXISTS MusicStore;
+
+USE MusicStore;
+
+CREATE TABLE ALBUMS_TABLE (
+    Album_id int unsigned primary key auto_increment,
+    Title varchar(120) not null,
+    Artist varchar(30) not null,
+    Description varchar(255) default '',
+    Price DECIMAL(10,2) unsigned not null,
+    Imagepath varchar(60) not null default 'images/imageholder.png',
+    Inventory int unsigned not null,
+    Is_delete char(1) default 'F'
+);
+
+CREATE TABLE USER_TABLE(
+	USER_ID INT unsigned primary key auto_increment,
+	USERNAME VARCHAR(50) NOT NULL,
+	PASSWORD VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE PURCHASE_TABLE(
+	USER_ID INT unsigned,
+	Album_id int unsigned,
+	PURCHASE_DATE Date
+);
+
+
+INSERT into USER_TABLE (USERNAME,PASSWORD) VALUES ('admin','21232f297a57a5a743894a0e4a801fc3'); #admin, admin
+INSERT into USER_TABLE (USERNAME,PASSWORD) VALUES ('test','098f6bcd4621d373cade4e832627b4f6'); #test, test
+
+INSERT INTO ALBUMS_TABLE(Title, Artist, Description, Price, Imagepath, Inventory) VALUES 
+("Jay",
+"jaychou",
+"Jay is Taiwanese Mandopop artist jaychou's debut Mandarin solo studio album.",
+8.99,
+"images/Jay.jpg",
+3),
+("Fantasy",
+"jaychou",
+"Fantasy is Taiwanese Mandopop artist jaychou's second Mandarin studio album.",
+8.99,
+"images/Fantasy.jpg",
+2),
+("The Eight Dimensions",
+"jaychou",
+"The Eight Dimensions is Taiwanese Mandopop artist jaychou's third Mandarin studio album.",
+8.99,
+"images/The Eight Dimensions.jpg",
+0),
+("Ye Hui Mei",
+"jaychou",
+"Ye Hui Mei is the fourth Mandarin studio album of Taiwanese Mandopop artist jaychou.",
+9.99,
+"images/Ye Hui Mei.jpg",
+1),
+("Common Jasmine Orange",
+"jaychou",
+"Common Jasmine Orange ( literally: 'Seven Mile Fragrance') is Taiwanese Mandopop artist jaychou's fifth Mandarin studio album.",
+9.99,
+"images/Common Jasmine Orange.jpg",
+1),
+("November's Chopin",
+"jaychou",
+"November's Chopin is Taiwanese Mandopop artist jaychou's sixth Mandarin studio album.",
+9.99,
+"images/November's Chopin.jpg",
+2),
+("Still Fantasy",
+"jaychou",
+"Still Fantasy is the seventh studio album by Taiwanese Mandopop artist jaychou.",
+9.99,
+"images/Still Fantasy.jpg",
+1),
+("On the Run",
+"jaychou",
+"On the Run (literally: 'I'm Very Busy') is Taiwanese Mandopop artist jaychou's eighth Mandarin studio album.",
+9.99,
+"images/On the Run.jpg",
+2),
+("My Life Will...",
+"desertschang",
+"Chang's debut album My Life Will... was released on June 9, 2006 under the record label Sony BMG. Chang promised that her style of music will not change.",
+9.99,
+"images/My Life Will.jpg",
+3),
+("Dear...I don't know yet",
+"desertschang",
+"She released her second album Oh, dear. dear. I haven't. on July 20, 2007. For the song However, she was nominated for Best Lyricist at the 19th Golden Melody Awards.",
+9.99,
+"images/I don't know yet.jpg",
+2),
+("A City",
+"desertschang",
+"On May 22, 2009, her third album City was released. Flagship song is Beautiful Woman, In the lonely and beautiful city, Let us embrace, agree with the great freedom of love",
+9.90,
+"images/city.jpg",
+2),
+("I think you're leaving",
+"desertschang",
+"Chang make this song I think you're leaving for the movie Monga in 2010, she was the singer/producer for this song. ",
+0.99,
+"images/I think you're leaving.jpg",
+3),
+("Games We Play",
+"desertschang",
+"Chang released her fourth album in August 2012. The album named(Games We Play) was released under Sony music. The new album provides insights into Chang's life experiences over the past three years, in songs such as How.",
+8.99,
+"images/Games We Play.jpg",
+1)
+
